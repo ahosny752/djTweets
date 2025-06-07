@@ -25,7 +25,7 @@ export default function DJTweets() {
     }
   };
 
-  const displayedText = tweetText.toUpperCase();
+  const displayedText = tweetText;
 
   return (
     <div className="max-w-4xl mx-auto p-8">
@@ -74,7 +74,7 @@ export default function DJTweets() {
             </div>
 
             {/* Tweet text */}
-            <div className="px-6 py-[12px] text-black text-xl text-left break-words whitespace-pre-wrap font-sans uppercase">
+            <div className="px-6 py-[12px] text-black text-xl text-left break-words whitespace-pre-wrap font-sans">
               {displayedText || "[YOUR BIG BEAUTIFUL TRUTH GOES HERE]"}
             </div>
 
