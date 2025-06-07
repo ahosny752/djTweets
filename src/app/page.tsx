@@ -28,29 +28,16 @@ export default function DJTweets() {
   const displayedText = tweetText.toUpperCase();
 
   return (
-    <div style={{ maxWidth: "960px", margin: "0 auto", padding: "2rem" }}>
-      <header style={{ textAlign: "center", marginBottom: "2rem" }}>
-        <h1 style={{ fontSize: "2.5rem", fontWeight: "bold" }}>DJTweets</h1>
-        <p style={{ color: "#6b7280" }}>Created by Ric0</p>
+    <div className="max-w-4xl mx-auto p-8">
+      <header className="text-center mb-8">
+        <h1 className="text-4xl font-bold">DJTweets</h1>
+        <p className="text-gray-500">Created by Ric0</p>
       </header>
 
-      <div
-        style={{
-          display: "grid",
-          gap: "2rem",
-          gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
-        }}
-      >
+      <div className="grid gap-8 grid-cols-1 md:grid-cols-2">
         {/* Left side */}
         <div>
-          <label
-            htmlFor="tweet-text"
-            style={{
-              display: "block",
-              fontWeight: "bold",
-              marginBottom: "0.5rem",
-            }}
-          >
+          <label htmlFor="tweet-text" className="block font-bold mb-2">
             Tweet Text
           </label>
           <textarea
@@ -58,30 +45,12 @@ export default function DJTweets() {
             placeholder="Type your tweet text here..."
             value={tweetText}
             onChange={(e) => setTweetText(e.target.value)}
-            style={{
-              width: "100%",
-              minHeight: "100px",
-              padding: "1rem",
-              fontSize: "1rem",
-              border: "1px solid #ccc",
-              borderRadius: "0.5rem",
-              marginBottom: "1rem",
-              resize: "vertical",
-            }}
+            className="w-full min-h-[100px] p-4 text-base border border-gray-300 rounded-lg mb-4 resize-vertical"
           />
 
           <button
             onClick={exportAsJpeg}
-            style={{
-              width: "100%",
-              padding: "0.75rem",
-              fontSize: "1rem",
-              backgroundColor: "#1d4ed8",
-              color: "#ffffff",
-              border: "none",
-              borderRadius: "0.5rem",
-              cursor: "pointer",
-            }}
+            className="w-full py-3 text-base bg-blue-700 text-white rounded-lg hover:bg-blue-800 transition"
           >
             Export as JPEG
           </button>
@@ -89,65 +58,37 @@ export default function DJTweets() {
 
         {/* Right side */}
         <div>
-          <h2
-            style={{
-              fontSize: "1.25rem",
-              fontWeight: "600",
-              marginBottom: "1rem",
-            }}
-          >
-            Preview
-          </h2>
+          <h2 className="text-xl font-semibold mb-4">Preview</h2>
 
-          {/* Exported area */}
           <div
             ref={tweetRef}
-            style={{
-              width: "100%",
-              maxWidth: "608px",
-              backgroundColor: "#ffffff",
-              border: "1px solid #ccc",
-              borderRadius: "0.5rem",
-              overflow: "hidden",
-              marginBottom: "1rem",
-            }}
+            className="w-full max-w-[608px] bg-white border border-gray-300 rounded-lg overflow-hidden mb-4"
           >
             {/* Top image */}
-            <div style={{ width: "100%" }}>
+            <div className="w-full">
               <img
                 src="/images/djtTop.png"
                 alt="Top"
-                style={{ width: "100%", height: "auto", display: "block" }}
+                className="w-full h-auto block"
               />
             </div>
 
             {/* Tweet text */}
-            <div
-              style={{
-                padding: "1.5rem",
-                color: "#000000",
-                fontSize: "1.25rem",
-                textAlign: "left",
-                wordBreak: "break-word",
-                whiteSpace: "pre-wrap",
-                fontFamily: "'Inter', sans-serif",
-                textTransform: "uppercase",
-              }}
-            >
+            <div className="px-6 py-[12px] text-black text-xl text-left break-words whitespace-pre-wrap font-sans uppercase">
               {displayedText || "[YOUR BIG BEAUTIFUL TRUTH GOES HERE]"}
             </div>
 
             {/* Bottom image */}
-            <div style={{ width: "100%" }}>
+            <div className="w-full">
               <img
                 src="/images/djtBottom.png"
                 alt="Bottom"
-                style={{ width: "100%", height: "auto", display: "block" }}
+                className="w-full h-auto block"
               />
             </div>
           </div>
 
-          <p style={{ fontSize: "0.875rem", color: "#6b7280" }}>
+          <p className="text-sm text-gray-500">
             This is how your tweet will look when exported
           </p>
         </div>
